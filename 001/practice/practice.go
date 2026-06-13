@@ -1,4 +1,10 @@
-package practice
+package main
+
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
 
 /*
 Exercise 001:
@@ -14,7 +20,22 @@ Tip: run `go test ./...` from this folder.
 
 // Ex001 should return all integers in [low, high] that are divisible by 7
 // but not by 5, joined by commas (e.g. "112,119,126,...").
-func Ex001(low, high int) string {
-	// TODO: write your solution here.
-	return ""
+
+func main() {
+	res := ex001(2000, 3200)
+
+	fmt.Println(res)
+}
+
+func ex001(low, high int) string {
+	var numbers []string
+	i := low
+	for i <= high {
+		if i % 7 == 0 && i%5 != 0 {
+			numbers = append(numbers, strconv.Itoa(i))
+		}
+		i++
+	}
+
+	return strings.Join(numbers, ",")
 }
